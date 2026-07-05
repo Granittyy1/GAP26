@@ -33,27 +33,31 @@ body {
 /* -- Hero / Header -------------------------------------------- */
 .hero {
   position: relative;
-  text-align: center;
-  padding: 2.5rem 1rem 1.2rem;
+  padding: 1.2rem 1rem 1.2rem;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: hidden;
+  min-height: 120px;
+}
+
+.hero-title {
+  position: relative;
+  z-index: 4;
+  text-align: left;
+  padding-left: .5rem;
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: .12em;
   color: var(--accent);
-  position: relative;
-  z-index: 2;
+  line-height: 1;
 }
 
 .subtitle {
-  font-size: .95rem;
+  font-size: .82rem;
   color: var(--muted);
-  margin-top: .2rem;
-  position: relative;
-  z-index: 2;
+  margin-top: .15rem;
 }
 
 /* -- Road Scene ----------------------------------------------- */
@@ -91,7 +95,7 @@ body {
 
 .road-lines {
   position: absolute;
-  bottom: 16%;
+  bottom: 14%;
   left: 0;
   width: 200%;
   height: 3px;
@@ -100,169 +104,387 @@ body {
   animation: scrollLines 1.8s linear infinite;
 }
 
-@keyframes scrollLines {
-  to { transform: translateX(-50%); }
-}
+@keyframes scrollLines { to { transform: translateX(-50%); } }
+@keyframes scrollBg    { to { transform: translateX(-50%); } }
 
-@keyframes scrollBg {
-  to { transform: translateX(-50%); }
-}
-
-/* -- Car (CSS-drawn Audi A6 C8 Avant) ------------------------ */
+/* =============================================================
+   Car -- Silver Audi A6 C8 Avant with dark roofbox
+   Proportions: long low wagon, ~4:1 length-to-height
+   ============================================================= */
 .car-container {
   position: absolute;
-  bottom: 22%;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 18%;
+  right: 12%;
   z-index: 3;
   animation: carBounce 1.2s ease-in-out infinite;
 }
 
 @keyframes carBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(-2px); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1.5px); }
 }
 
 .car {
   position: relative;
-  width: 120px;
-  height: 46px;
+  width: 180px;
+  height: 62px;
 }
 
-/* Main body */
-.car .body {
+/* -- Body panels ---------------------------------------------- */
+.body-upper {
   position: absolute;
-  bottom: 8px;
+  bottom: 14px;
+  left: 10px;
+  width: 160px;
+  height: 18px;
+  background: linear-gradient(to bottom, #c8c8d0 0%, #b8b8c4 40%, #adaeba 100%);
+  border-radius: 2px 4px 2px 2px;
+}
+
+.body-lower {
+  position: absolute;
+  bottom: 10px;
   left: 8px;
-  width: 104px;
+  width: 164px;
+  height: 10px;
+  background: linear-gradient(to bottom, #a8a8b4, #909098);
+  border-radius: 0 2px 3px 3px;
+}
+
+.character-line {
+  position: absolute;
+  bottom: 22px;
+  left: 30px;
+  width: 130px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15) 20%, rgba(255,255,255,.2) 80%, transparent);
+}
+
+.sill {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: 140px;
+  height: 2px;
+  background: #707078;
+  border-radius: 1px;
+}
+
+/* -- Cabin / greenhouse --------------------------------------- */
+.cabin {
+  position: absolute;
+  bottom: 32px;
+  left: 26px;
+  width: 118px;
   height: 20px;
-  background: linear-gradient(to bottom, #c0c0c8, #a8a8b4);
-  border-radius: 4px 6px 3px 3px;
+  background: linear-gradient(to bottom, #babac6 0%, #b0b0bc 50%, #a8a8b4 100%);
+  clip-path: polygon(0% 100%, 3% 10%, 6% 0%, 82% 0%, 100% 100%);
+  border-radius: 1px;
 }
 
-/* Cabin / greenhouse */
-.car .cabin {
+.rear-quarter-window {
   position: absolute;
-  bottom: 100%;
-  left: 16px;
-  width: 72px;
-  height: 16px;
-  background: linear-gradient(to bottom, #b0b0bc, #9898a8);
-  border-radius: 2px 10px 0 0;
-  clip-path: polygon(0% 100%, 8% 0%, 78% 0%, 100% 100%);
-}
-
-.car .rear-window {
-  position: absolute;
-  bottom: 100%;
-  left: 18px;
+  left: 4px;
+  top: 3px;
   width: 18px;
-  height: 13px;
-  background: #2a3a5a;
-  clip-path: polygon(10% 100%, 22% 8%, 100% 8%, 100% 100%);
-  opacity: .85;
-}
-
-.car .front-window {
-  position: absolute;
-  bottom: 100%;
-  left: 58px;
-  width: 28px;
   height: 14px;
-  background: #2a3a5a;
-  clip-path: polygon(0% 100%, 0% 8%, 85% 100%);
+  background: linear-gradient(135deg, #1a2a44 0%, #243654 100%);
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: .9;
+}
+
+.rear-door-window {
+  position: absolute;
+  left: 24px;
+  top: 2px;
+  width: 30px;
+  height: 15px;
+  background: linear-gradient(135deg, #1a2a44 0%, #283c58 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: .9;
+}
+
+.front-door-window {
+  position: absolute;
+  left: 56px;
+  top: 2px;
+  width: 30px;
+  height: 15px;
+  background: linear-gradient(135deg, #1a2a44 0%, #283c58 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: .9;
+}
+
+.windshield {
+  position: absolute;
+  left: 88px;
+  top: 1px;
+  width: 26px;
+  height: 17px;
+  background: linear-gradient(135deg, #1a2a44 0%, #2a4060 100%);
+  clip-path: polygon(0% 0%, 72% 100%, 0% 100%);
   opacity: .85;
 }
 
-/* Roofbox */
+.d-pillar {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 5px;
+  height: 16px;
+  background: #a0a0ac;
+  clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.b-pillar {
+  position: absolute;
+  left: 53px;
+  top: 1px;
+  width: 4px;
+  height: 16px;
+  background: #2a2a38;
+}
+
+.chrome-trim {
+  position: absolute;
+  left: 3px;
+  bottom: 0;
+  width: 108px;
+  height: 1px;
+  background: linear-gradient(90deg, #888, #ccc 30%, #ccc 70%, #888);
+}
+
+/* -- Roofbox -------------------------------------------------- */
 .roofbox {
   position: absolute;
-  bottom: 36px;
-  left: 22px;
-  width: 62px;
-  height: 8px;
-  background: linear-gradient(to bottom, #3a3a48, #2a2a38);
-  border-radius: 3px 3px 1px 1px;
-  box-shadow: 0 -1px 3px rgba(0,0,0,.3);
+  bottom: 52px;
+  left: 32px;
+  width: 100px;
+  height: 7px;
+  background: linear-gradient(to bottom, #2a2a32 0%, #222228 100%);
+  border-radius: 2px 3px 1px 1px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
 }
 
-/* Wheels */
+.roofbox-top {
+  position: absolute;
+  top: -3px;
+  left: 5px;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(to bottom, #38383f, #2a2a32);
+  border-radius: 4px 4px 0 0;
+}
+
+.roof-rails {
+  position: absolute;
+  bottom: 50px;
+  left: 38px;
+  width: 88px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #666 0px, #666 3px, transparent 3px, transparent 30px);
+}
+
+/* -- Front end ------------------------------------------------ */
+.hood {
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+  width: 30px;
+  height: 4px;
+  background: linear-gradient(to right, #b8b8c4, #c0c0cc);
+  border-radius: 0 2px 0 0;
+}
+
+.grille {
+  position: absolute;
+  bottom: 16px;
+  right: 8px;
+  width: 6px;
+  height: 14px;
+  background: #1a1a22;
+  border-radius: 0 2px 2px 0;
+  clip-path: polygon(0% 5%, 100% 0%, 100% 100%, 0% 95%);
+}
+
+.grille-chrome {
+  position: absolute;
+  bottom: 19px;
+  right: 8px;
+  width: 7px;
+  height: 8px;
+  border: 1px solid rgba(200,200,210,.4);
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+}
+
+.headlight {
+  position: absolute;
+  bottom: 24px;
+  right: 8px;
+  width: 8px;
+  height: 4px;
+  background: rgba(255,255,255,.1);
+  border-radius: 0 2px 1px 0;
+}
+
+.headlight .drl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  box-shadow: 6px 0 14px 4px rgba(255,255,255,.25), 3px 0 6px 2px rgba(255,255,255,.35);
+}
+
+.front-bumper {
+  position: absolute;
+  bottom: 10px;
+  right: 6px;
+  width: 8px;
+  height: 6px;
+  background: #606068;
+  border-radius: 0 3px 3px 0;
+}
+
+.front-intake {
+  position: absolute;
+  bottom: 10px;
+  right: 7px;
+  width: 5px;
+  height: 3px;
+  background: #1a1a22;
+  border-radius: 0 1px 1px 0;
+}
+
+/* -- Rear end ------------------------------------------------- */
+.taillight {
+  position: absolute;
+  bottom: 24px;
+  left: 9px;
+  width: 6px;
+  height: 4px;
+  background: rgba(180, 30, 30, .6);
+  border-radius: 1px 0 0 1px;
+}
+
+.taillight .tail-led {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: #e83030;
+  border-radius: 1px;
+  box-shadow: -4px 0 10px 2px rgba(232, 48, 48, .35);
+}
+
+.rear-bumper {
+  position: absolute;
+  bottom: 10px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  background: #606068;
+  border-radius: 3px 0 0 3px;
+}
+
+/* -- Exhaust tips --------------------------------------------- */
+.exhaust-tip {
+  position: absolute;
+  bottom: 10px;
+  width: 5px;
+  height: 3px;
+  background: #555;
+  border-radius: 1px;
+}
+
+.exhaust-tip.left-tip  { left: 2px; }
+.exhaust-tip.right-tip { left: 2px; bottom: 14px; }
+
+.exhaust {
+  position: absolute;
+  bottom: 10px;
+  left: -2px;
+}
+
+.puff {
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(180, 180, 200, .25);
+  border-radius: 50%;
+  animation: puffAnim 1.8s ease-out infinite;
+}
+
+.p2 { animation-delay: .6s; }
+.p3 { animation-delay: 1.2s; }
+
+@keyframes puffAnim {
+  0%   { transform: translate(0, 0) scale(1); opacity: .35; }
+  100% { transform: translate(-20px, -5px) scale(2.5); opacity: 0; }
+}
+
+/* -- Wheels (dark alloys, 5-spoke) ---------------------------- */
 .wheel {
   position: absolute;
   bottom: 0;
-  width: 16px;
-  height: 16px;
-  background: #1a1a1a;
+  width: 22px;
+  height: 22px;
+}
+
+.wheel .tire {
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
-  border: 2px solid #333;
-  animation: wheelSpin .5s linear infinite;
+  background: #1a1a1e;
+  border: 2px solid #2a2a30;
+}
+
+.wheel .rim {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #3a3a42;
+  animation: wheelSpin .6s linear infinite;
 }
 
 .wheel .hub {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   background: #888;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
-.wheel-front { left: 78px; }
-.wheel-rear  { left: 16px; }
-
-@keyframes wheelSpin {
-  to { transform: rotate(360deg); }
-}
-
-/* Lights */
-.headlight {
+.wheel .spoke {
   position: absolute;
-  bottom: 14px;
-  right: 6px;
-  width: 5px;
-  height: 4px;
-  background: #ffe680;
-  border-radius: 1px;
-  box-shadow: 4px 0 12px 3px rgba(255, 230, 128, .35);
-}
-
-.taillight {
-  position: absolute;
-  bottom: 14px;
-  left: 7px;
-  width: 4px;
-  height: 4px;
-  background: #e84545;
-  border-radius: 1px;
-  box-shadow: -3px 0 8px 1px rgba(232, 69, 69, .4);
-}
-
-/* Exhaust puffs */
-.exhaust {
-  position: absolute;
-  bottom: 8px;
-  left: -4px;
-}
-
-.puff {
-  display: block;
-  position: absolute;
-  width: 6px;
+  top: 50%;
+  left: 50%;
+  width: 2px;
   height: 6px;
-  background: rgba(180, 180, 200, .3);
-  border-radius: 50%;
-  animation: puffAnim 1.5s ease-out infinite;
+  background: #666;
+  transform-origin: center top;
+  border-radius: 1px;
 }
 
-.p2 { animation-delay: .5s; }
-.p3 { animation-delay: 1s; }
+.spoke.s1 { transform: translate(-50%, 0) rotate(0deg); }
+.spoke.s2 { transform: translate(-50%, 0) rotate(72deg); }
+.spoke.s3 { transform: translate(-50%, 0) rotate(144deg); }
+.spoke.s4 { transform: translate(-50%, 0) rotate(216deg); }
+.spoke.s5 { transform: translate(-50%, 0) rotate(288deg); }
 
-@keyframes puffAnim {
-  0%   { transform: translate(0, 0) scale(1); opacity: .4; }
-  100% { transform: translate(-18px, -6px) scale(2.5); opacity: 0; }
-}
+.wheel-front { right: 18px; }
+.wheel-rear  { left: 20px; }
+
+@keyframes wheelSpin { to { transform: rotate(360deg); } }
 
 /* -- Tabs ----------------------------------------------------- */
 .tabs {
@@ -304,17 +526,9 @@ body {
   transition: transform .25s ease;
 }
 
-.tab.active {
-  color: var(--accent);
-}
-
-.tab.active::after {
-  transform: scaleX(1);
-}
-
-.tab-icon {
-  font-size: 1.3rem;
-}
+.tab.active { color: var(--accent); }
+.tab.active::after { transform: scaleX(1); }
+.tab-icon { font-size: 1.3rem; }
 
 /* -- Checklist Panels ----------------------------------------- */
 main {
@@ -325,9 +539,7 @@ main {
   width: 100%;
 }
 
-.checklist-panel {
-  display: none;
-}
+.checklist-panel { display: none; }
 
 .checklist-panel.active {
   display: block;
@@ -358,13 +570,8 @@ main {
   transition: border-color .2s;
 }
 
-.add-form input:focus {
-  border-color: var(--accent);
-}
-
-.add-form input::placeholder {
-  color: var(--muted);
-}
+.add-form input:focus { border-color: var(--accent); }
+.add-form input::placeholder { color: var(--muted); }
 
 .add-form button {
   width: 48px;
@@ -383,14 +590,10 @@ main {
   flex-shrink: 0;
 }
 
-.add-form button:active {
-  transform: scale(.92);
-}
+.add-form button:active { transform: scale(.92); }
 
 /* -- Item List ------------------------------------------------ */
-.items {
-  list-style: none;
-}
+.items { list-style: none; }
 
 .items li {
   display: flex;
@@ -407,11 +610,8 @@ main {
   -webkit-user-select: none;
 }
 
-.items li:active {
-  background: var(--border);
-}
+.items li:active { background: var(--border); }
 
-/* Custom checkbox */
 .item-check {
   width: 22px;
   height: 22px;
@@ -424,9 +624,7 @@ main {
   transition: border-color .2s, background .2s;
 }
 
-.items li:hover .item-check {
-  border-color: var(--green);
-}
+.items li:hover .item-check { border-color: var(--green); }
 
 .item-text {
   flex: 1;
@@ -452,13 +650,9 @@ main {
 }
 
 .items li:hover .item-delete,
-.items li:focus-within .item-delete {
-  opacity: 1;
-}
+.items li:focus-within .item-delete { opacity: 1; }
 
-@media (hover: none) {
-  .item-delete { opacity: .6; }
-}
+@media (hover: none) { .item-delete { opacity: .6; } }
 
 .item-delete:hover {
   color: var(--accent2);
@@ -584,9 +778,7 @@ footer {
   animation: spin .8s linear infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* -- Offline banner ------------------------------------------- */
 .offline-banner {
@@ -609,10 +801,7 @@ footer {
   text-align: center;
 }
 
-.config-prompt h2 {
-  color: var(--accent);
-  margin-bottom: .5rem;
-}
+.config-prompt h2 { color: var(--accent); margin-bottom: .5rem; }
 
 .config-prompt p {
   color: var(--muted);
@@ -635,11 +824,11 @@ footer {
 
 /* -- Responsive ----------------------------------------------- */
 @media (min-width: 480px) {
-  .hero { padding: 3rem 1rem 1.5rem; }
-  .hero h1 { font-size: 2.5rem; }
-  .car-container { transform: translateX(-50%) scale(1.2); }
+  .hero { padding: 1.5rem 1.5rem 1.5rem; min-height: 140px; }
+  .hero h1 { font-size: 2.2rem; }
+  .car-container { transform: scale(1.15); }
   @keyframes carBounce {
-    0%, 100% { transform: translateX(-50%) scale(1.2) translateY(0); }
-    50%      { transform: translateX(-50%) scale(1.2) translateY(-2px); }
+    0%, 100% { transform: scale(1.15) translateY(0); }
+    50%      { transform: scale(1.15) translateY(-1.5px); }
   }
 }
