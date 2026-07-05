@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#1a1a2e">
-  <title>GAP26 ? Trip Checklist</title>
+  <title>GAP26 &#8212; Trip Checklist</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,15 +42,15 @@
 
   <nav class="tabs" role="tablist">
     <button class="tab active" role="tab" data-list="road" aria-selected="true">
-      <span class="tab-icon">??</span>
+      <span class="tab-icon">&#x1F697;</span>
       <span class="tab-label">Road Prep</span>
     </button>
     <button class="tab" role="tab" data-list="croatia" aria-selected="false">
-      <span class="tab-icon">???</span>
+      <span class="tab-icon">&#x1F3D6;&#xFE0F;</span>
       <span class="tab-label">Croatia</span>
     </button>
     <button class="tab" role="tab" data-list="kosova" aria-selected="false">
-      <span class="tab-icon">???</span>
+      <span class="tab-icon">&#x26F0;&#xFE0F;</span>
       <span class="tab-label">Kosova</span>
     </button>
   </nav>
@@ -58,7 +58,7 @@
   <main>
     <section class="checklist-panel active" data-panel="road">
       <form class="add-form" data-list="road">
-        <input type="text" placeholder="Add a road prep item?" autocomplete="off" required>
+        <input type="text" placeholder="Add a road prep item&#8230;" autocomplete="off" required>
         <button type="submit" aria-label="Add item">+</button>
       </form>
       <ul class="items" data-items="road"></ul>
@@ -70,7 +70,7 @@
 
     <section class="checklist-panel" data-panel="croatia">
       <form class="add-form" data-list="croatia">
-        <input type="text" placeholder="Add a Croatia item?" autocomplete="off" required>
+        <input type="text" placeholder="Add a Croatia item&#8230;" autocomplete="off" required>
         <button type="submit" aria-label="Add item">+</button>
       </form>
       <ul class="items" data-items="croatia"></ul>
@@ -82,7 +82,7 @@
 
     <section class="checklist-panel" data-panel="kosova">
       <form class="add-form" data-list="kosova">
-        <input type="text" placeholder="Add a Kosova item?" autocomplete="off" required>
+        <input type="text" placeholder="Add a Kosova item&#8230;" autocomplete="off" required>
         <button type="submit" aria-label="Add item">+</button>
       </form>
       <ul class="items" data-items="kosova"></ul>
@@ -94,12 +94,12 @@
   </main>
 
   <footer>
-    <p>Granit &amp; <span class="heart">?</span> ? Summer 2026</p>
+    <p>Granit, Adelina &amp; Priam <span class="heart">&#x2665;</span> Summer 2026</p>
   </footer>
 
   <div id="toast" class="toast" hidden></div>
 
-  <!-- Firebase SDK (compat, from CDN ? no build tools needed) -->
+  <!-- Firebase SDK (compat, from CDN) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script src="app.js"></script>
