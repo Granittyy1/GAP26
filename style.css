@@ -107,17 +107,18 @@ body {
 .car-driver {
   position: absolute;
   bottom: 22%;
+  left: 30%;
   z-index: 3;
   animation: carDrive 14s linear infinite;
 }
 
 @keyframes carDrive {
-  0%     { left: -140px; transform: scaleX(1); }
-  46%    { left: calc(100% + 10px); transform: scaleX(1); }
-  47%    { left: calc(100% + 10px); transform: scaleX(-1); }
-  50%    { left: calc(100% + 10px); transform: scaleX(-1); }
-  96%    { left: -140px; transform: scaleX(-1); }
-  97%    { left: -140px; transform: scaleX(1); }
+  0%     { left: -140px; }
+  48%    { left: calc(100% + 20px); }
+  48.5%  { left: calc(100% + 20px); transform: scaleX(-1); }
+  50%    { left: calc(100% + 20px); transform: scaleX(-1); }
+  98%    { left: -140px; transform: scaleX(-1); }
+  98.5%  { left: -140px; transform: scaleX(1); }
   100%   { left: -140px; transform: scaleX(1); }
 }
 
