@@ -113,13 +113,13 @@ body {
 }
 
 @keyframes carDrive {
-  0%     { left: -140px; }
-  48%    { left: calc(100% + 20px); }
-  48.5%  { left: calc(100% + 20px); transform: scaleX(-1); }
-  50%    { left: calc(100% + 20px); transform: scaleX(-1); }
-  98%    { left: -140px; transform: scaleX(-1); }
-  98.5%  { left: -140px; transform: scaleX(1); }
-  100%   { left: -140px; transform: scaleX(1); }
+  0%     { left: -140px;              transform: scaleX(1); }
+  48%    { left: calc(100% + 20px);   transform: scaleX(1); }
+  48.5%  { left: calc(100% + 20px);   transform: scaleX(-1); }
+  50%    { left: calc(100% + 20px);   transform: scaleX(-1); }
+  98%    { left: -140px;              transform: scaleX(-1); }
+  98.5%  { left: -140px;              transform: scaleX(1); }
+  100%   { left: -140px;              transform: scaleX(1); }
 }
 
 /* -- Car (original CSS-drawn Audi A6 C8 Avant) ---------------- */
