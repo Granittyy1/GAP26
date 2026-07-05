@@ -12,117 +12,34 @@
 <body>
 
   <header class="hero">
-    <div class="hero-title">
-      <h1>GAP26</h1>
-      <p class="subtitle">Summer Trip Checklist</p>
-    </div>
     <div class="road-scene">
       <div class="mountains"></div>
       <div class="road"></div>
       <div class="car-driver">
         <div class="car-container">
-        <svg class="car-svg" viewBox="0 0 300 84" fill="none">
-          <defs>
-            <linearGradient id="silver" x1="150" y1="20" x2="150" y2="65" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#e6e6f0"/><stop offset=".3" stop-color="#d6d6e2"/>
-              <stop offset=".6" stop-color="#c4c4d2"/><stop offset="1" stop-color="#adaebe"/>
-            </linearGradient>
-            <linearGradient id="glass" x1="100" y1="24" x2="115" y2="44" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#5580aa"/><stop offset="1" stop-color="#2a4466"/>
-            </linearGradient>
-            <linearGradient id="boxG" x1="0" y1="0" x2="0" y2="1">
-              <stop stop-color="#4a4a54"/><stop offset="1" stop-color="#1e1e24"/>
-            </linearGradient>
-            <filter id="hlG" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3"/></filter>
-            <filter id="tlG" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2.5"/></filter>
-          </defs>
-
-          <!-- Roofbox -->
-          <rect x="46" y="13" width="148" height="9" rx="3" fill="url(#boxG)"/>
-          <path d="M54,13Q122,9 194,13" stroke="rgba(255,255,255,.06)" stroke-width=".8" fill="none"/>
-          <rect x="62" y="22" width="2" height="2" rx=".5" fill="#888"/>
-          <rect x="128" y="22" width="2" height="2" rx=".5" fill="#888"/>
-          <rect x="182" y="22" width="2" height="2" rx=".5" fill="#888"/>
-
-          <!-- Body shell -->
-          <path d="M16,62 L16,38 Q17,29 26,25 L28,24 L196,24 Q207,24 220,36 L232,44 L275,44 Q281,44 284,49 L286,56 L286,62 L272,62 A16,11 0 0,0 238,62 L94,62 A16,11 0 0,0 60,62 Z" fill="url(#silver)"/>
-          <path d="M16,54 L286,54 L286,62 L272,62 A16,11 0 0,0 238,62 L94,62 A16,11 0 0,0 60,62 L16,62Z" fill="rgba(0,0,0,.08)"/>
-          <line x1="30" y1="48" x2="282" y2="48" stroke="rgba(255,255,255,.18)" stroke-width=".6"/>
-          <line x1="44" y1="43.5" x2="232" y2="43.5" stroke="#ccc" stroke-width=".6"/>
-
-          <!-- Windows -->
-          <rect x="44" y="26" width="21" height="17" rx=".5" fill="url(#glass)"/>
-          <line x1="66.5" y1="26" x2="66.5" y2="43" stroke="#bbb" stroke-width="1"/>
-          <rect x="68" y="26" width="39" height="17" rx=".5" fill="url(#glass)"/>
-          <rect x="108" y="25" width="3.5" height="19" rx=".3" fill="#1a1a26"/>
-          <rect x="112.5" y="26" width="39" height="17" rx=".5" fill="url(#glass)"/>
-          <polygon points="152.5,26 156,26 167,44 163,44" fill="#1a1a26"/>
-          <path d="M156.5,26 L196,24 Q207,24 220,36 L231,44 L167.5,44Z" fill="url(#glass)"/>
-          <path d="M44,26 L152,26" stroke="#ccc" stroke-width=".5"/>
-
-          <!-- Grille -->
-          <path d="M282,44 Q289,44 289,48 L289,58 Q289,62 285,62 L282,62Z" fill="#111118"/>
-          <path d="M282,44 Q289,44 289,48 L289,58 Q289,62 285,62" stroke="#bbb" stroke-width=".7" fill="none"/>
-          <line x1="283" y1="50" x2="288" y2="50" stroke="#2a2a30" stroke-width=".4"/>
-          <line x1="283" y1="53" x2="288" y2="53" stroke="#2a2a30" stroke-width=".4"/>
-          <line x1="283" y1="56" x2="288" y2="56" stroke="#2a2a30" stroke-width=".4"/>
-
-          <!-- Headlight + DRL glow -->
-          <rect x="281" y="42" width="8" height="3.5" rx="1" fill="rgba(220,230,255,.2)"/>
-          <rect x="281" y="42.5" width="8" height="1.5" rx=".5" fill="white"/>
-          <rect x="285" y="41.5" width="6" height="4" rx="1.5" fill="white" opacity=".5" filter="url(#hlG)"/>
-
-          <!-- Front bumper -->
-          <rect x="282" y="56" width="7" height="6" rx="1.5" fill="#8a8a94"/>
-          <rect x="284" y="58" width="4" height="3" rx="1" fill="#111118"/>
-
-          <!-- Taillight + glow -->
-          <rect x="13" y="35" width="5" height="4" rx="1" fill="rgba(255,40,40,.45)"/>
-          <rect x="13" y="35.5" width="5" height="2" rx=".5" fill="#ff2020"/>
-          <rect x="10" y="34.5" width="6" height="5" rx="1.5" fill="#ff2020" opacity=".4" filter="url(#tlG)"/>
-
-          <!-- Rear bumper + exhaust -->
-          <rect x="12" y="56" width="6" height="6" rx="1.5" fill="#8a8a94"/>
-          <rect x="9" y="57" width="4" height="2.5" rx=".8" fill="#555"/>
-          <rect x="9" y="53" width="4" height="2.5" rx=".8" fill="#555"/>
-
-          <!-- Rear wheel -->
-          <circle cx="77" cy="67" r="13" fill="#111116"/>
-          <circle cx="77" cy="67" r="11.5" fill="#1a1a22"/>
-          <g class="wheel-spin" style="transform-origin:77px 67px">
-            <circle cx="77" cy="67" r="8.5" fill="#3a3a44"/>
-            <line x1="77" y1="58.5" x2="77" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="85.1" y1="64.4" x2="77" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="82" y1="73.9" x2="77" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="72" y1="73.9" x2="77" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="68.9" y1="64.4" x2="77" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="77" cy="67" r="3" fill="#888"/>
-            <circle cx="77" cy="67" r="1.2" fill="#bbb"/>
-          </g>
-
-          <!-- Front wheel -->
-          <circle cx="255" cy="67" r="13" fill="#111116"/>
-          <circle cx="255" cy="67" r="11.5" fill="#1a1a22"/>
-          <g class="wheel-spin" style="transform-origin:255px 67px">
-            <circle cx="255" cy="67" r="8.5" fill="#3a3a44"/>
-            <line x1="255" y1="58.5" x2="255" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="263.1" y1="64.4" x2="255" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="260" y1="73.9" x2="255" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="250" y1="73.9" x2="255" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="246.9" y1="64.4" x2="255" y2="67" stroke="#777" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="255" cy="67" r="3" fill="#888"/>
-            <circle cx="255" cy="67" r="1.2" fill="#bbb"/>
-          </g>
-        </svg>
-        <div class="exhaust">
-          <span class="puff p1"></span>
-          <span class="puff p2"></span>
-          <span class="puff p3"></span>
-        </div>
+          <div class="car">
+            <div class="roofbox"></div>
+            <div class="body">
+              <div class="cabin"></div>
+              <div class="rear-window"></div>
+              <div class="front-window"></div>
+            </div>
+            <div class="wheel wheel-front"><div class="hub"></div></div>
+            <div class="wheel wheel-rear"><div class="hub"></div></div>
+            <div class="headlight"></div>
+            <div class="taillight"></div>
+            <div class="exhaust">
+              <span class="puff p1"></span>
+              <span class="puff p2"></span>
+              <span class="puff p3"></span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="road-lines"></div>
     </div>
+    <h1>GAP26</h1>
+    <p class="subtitle">Summer Trip Checklist</p>
   </header>
 
   <nav class="tabs" role="tablist">
