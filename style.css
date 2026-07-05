@@ -33,9 +33,8 @@ body {
 /* -- Hero / Header -------------------------------------------- */
 .hero {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  padding: 1rem 1rem .8rem;
+  text-align: center;
+  padding: 2rem 1rem 1rem;
   background: linear-gradient(135deg, #111128 0%, #141430 40%, #0c1a38 100%);
   overflow: hidden;
   min-height: 110px;
@@ -44,12 +43,10 @@ body {
 .hero-title {
   position: relative;
   z-index: 4;
-  text-align: left;
-  flex-shrink: 0;
 }
 
 .hero h1 {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: .12em;
   color: var(--accent);
@@ -58,7 +55,7 @@ body {
 }
 
 .subtitle {
-  font-size: .75rem;
+  font-size: .85rem;
   color: var(--muted);
   margin-top: .2rem;
 }
@@ -110,343 +107,62 @@ body {
 @keyframes scrollBg    { to { transform: translateX(-50%); } }
 
 /* =============================================================
-   Car -- Silver Audi A6 C8 Avant with dark roofbox
+   Car (SVG-based Audi A6 C8 Avant) -- drives across the header
    ============================================================= */
-.car-container {
+
+/* Outer wrapper: handles left-to-right driving + direction flip */
+.car-driver {
   position: absolute;
-  bottom: 20%;
-  right: 8%;
+  bottom: 16%;
   z-index: 3;
+  animation: carDrive 14s linear infinite;
+}
+
+@keyframes carDrive {
+  0%     { left: -200px; transform: scaleX(1); }
+  46%    { left: calc(100% + 10px); transform: scaleX(1); }
+  47%    { left: calc(100% + 10px); transform: scaleX(-1); }
+  50%    { left: calc(100% + 10px); transform: scaleX(-1); }
+  96%    { left: -200px; transform: scaleX(-1); }
+  97%    { left: -200px; transform: scaleX(1); }
+  100%   { left: -200px; transform: scaleX(1); }
+}
+
+/* Inner wrapper: road-bounce effect */
+.car-container {
   animation: carBounce 1.4s ease-in-out infinite;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.6));
 }
 
 @keyframes carBounce {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-1.5px); }
+  50%      { transform: translateY(-2px); }
 }
 
-.car {
-  position: relative;
-  width: 200px;
-  height: 68px;
+.car-svg {
+  width: 190px;
+  height: auto;
+  display: block;
 }
 
-/* -- Body panels (bright silver metallic) --------------------- */
-.body-upper {
-  position: absolute;
-  bottom: 16px;
-  left: 10px;
-  width: 180px;
-  height: 20px;
-  background: linear-gradient(180deg, #e0e0e8 0%, #d0d0da 30%, #c4c4d0 60%, #b8b8c4 100%);
-  border-radius: 2px 5px 2px 2px;
+.wheel-spin {
+  animation: wheelSpin .5s linear infinite;
 }
 
-.body-lower {
-  position: absolute;
-  bottom: 12px;
-  left: 8px;
-  width: 184px;
-  height: 10px;
-  background: linear-gradient(180deg, #b0b0bc, #9a9aa6);
-  border-radius: 0 2px 3px 3px;
-}
-
-.body-upper::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 10px;
-  right: 10px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35) 30%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.35) 70%, transparent);
-}
-
-.character-line {
-  position: absolute;
-  bottom: 26px;
-  left: 30px;
-  width: 148px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25) 15%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.25) 85%, transparent);
-}
-
-.sill {
-  position: absolute;
-  bottom: 12px;
-  left: 28px;
-  width: 148px;
-  height: 2px;
-  background: #808088;
-  border-radius: 1px;
-}
-
-/* -- Cabin / greenhouse --------------------------------------- */
-.cabin {
-  position: absolute;
-  bottom: 36px;
-  left: 28px;
-  width: 132px;
-  height: 22px;
-  background: linear-gradient(180deg, #d4d4e0 0%, #ccccda 40%, #c4c4d0 100%);
-  clip-path: polygon(0% 100%, 2% 15%, 5% 0%, 80% 0%, 100% 100%);
-}
-
-.rear-quarter-window {
-  position: absolute;
-  left: 5px;
-  top: 4px;
-  width: 20px;
-  height: 15px;
-  background: linear-gradient(160deg, #3a5a80 0%, #2a4468 100%);
-  clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.rear-door-window {
-  position: absolute;
-  left: 27px;
-  top: 3px;
-  width: 33px;
-  height: 16px;
-  background: linear-gradient(160deg, #3a5a80 0%, #2e4e72 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.front-door-window {
-  position: absolute;
-  left: 63px;
-  top: 3px;
-  width: 33px;
-  height: 16px;
-  background: linear-gradient(160deg, #3a5a80 0%, #2e4e72 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.windshield {
-  position: absolute;
-  left: 99px;
-  top: 2px;
-  width: 28px;
-  height: 18px;
-  background: linear-gradient(160deg, #4a6a90 0%, #3a5a80 100%);
-  clip-path: polygon(0% 0%, 65% 100%, 0% 100%);
-}
-
-.d-pillar {
-  position: absolute;
-  left: 1px;
-  top: 3px;
-  width: 6px;
-  height: 17px;
-  background: linear-gradient(180deg, #ccccd8, #c0c0cc);
-  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.b-pillar {
-  position: absolute;
-  left: 59px;
-  top: 2px;
-  width: 5px;
-  height: 17px;
-  background: #1a1a24;
-}
-
-.chrome-trim {
-  position: absolute;
-  left: 4px;
-  bottom: 0;
-  width: 120px;
-  height: 1px;
-  background: linear-gradient(90deg, #aaa, #e8e8f0 25%, #e8e8f0 75%, #aaa);
-}
-
-/* -- Roofbox (dark, like your Thule) -------------------------- */
-.roofbox {
-  position: absolute;
-  bottom: 58px;
-  left: 36px;
-  width: 110px;
-  height: 8px;
-  background: linear-gradient(180deg, #3a3a44 0%, #28282f 50%, #222228 100%);
-  border-radius: 3px 4px 1px 1px;
-  box-shadow: 0 1px 5px rgba(0,0,0,.5);
-}
-
-.roofbox-top {
-  position: absolute;
-  top: -4px;
-  left: 6px;
-  width: 98px;
-  height: 5px;
-  background: linear-gradient(180deg, #484850, #3a3a44);
-  border-radius: 6px 6px 0 0;
-}
-
-.roofbox::after {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 10px;
-  right: 10px;
-  height: 1px;
-  background: rgba(255,255,255,.08);
-}
-
-.roof-rails {
-  position: absolute;
-  bottom: 56px;
-  left: 42px;
-  width: 96px;
-  height: 2px;
-  background: repeating-linear-gradient(90deg, #777 0px, #777 3px, transparent 3px, transparent 32px);
-}
-
-/* -- Front end ------------------------------------------------ */
-.hood {
-  position: absolute;
-  bottom: 32px;
-  right: 10px;
-  width: 38px;
-  height: 4px;
-  background: linear-gradient(90deg, #d0d0dc, #dcdce6);
-  border-radius: 0 3px 0 0;
-}
-
-.hood::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 4px;
-  right: 2px;
-  height: 1px;
-  background: rgba(255,255,255,.2);
-}
-
-.grille {
-  position: absolute;
-  bottom: 18px;
-  right: 8px;
-  width: 7px;
-  height: 16px;
-  background: #0e0e14;
-  border-radius: 0 3px 3px 0;
-  clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 96%);
-}
-
-.grille-chrome {
-  position: absolute;
-  bottom: 22px;
-  right: 8px;
-  width: 8px;
-  height: 9px;
-  border: 1.5px solid rgba(220,220,230,.5);
-  border-left: none;
-  border-radius: 0 3px 3px 0;
-}
-
-.headlight {
-  position: absolute;
-  bottom: 28px;
-  right: 8px;
-  width: 10px;
-  height: 5px;
-  background: rgba(200,210,230,.15);
-  border-radius: 0 3px 2px 0;
-}
-
-.headlight .drl {
-  position: absolute;
-  top: 1px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  border-radius: 1px;
-  box-shadow:
-    8px 0 18px 5px rgba(255,255,255,.3),
-    4px 0 8px 2px rgba(255,255,255,.4),
-    0 0 4px 1px rgba(255,255,255,.6);
-}
-
-.front-bumper {
-  position: absolute;
-  bottom: 12px;
-  right: 5px;
-  width: 10px;
-  height: 8px;
-  background: linear-gradient(180deg, #909098, #707078);
-  border-radius: 0 4px 4px 0;
-}
-
-.front-intake {
-  position: absolute;
-  bottom: 12px;
-  right: 6px;
-  width: 6px;
-  height: 3px;
-  background: #0e0e14;
-  border-radius: 0 2px 2px 0;
-}
-
-/* -- Rear end ------------------------------------------------- */
-.taillight {
-  position: absolute;
-  bottom: 28px;
-  left: 9px;
-  width: 8px;
-  height: 5px;
-  background: rgba(200, 40, 40, .5);
-  border-radius: 2px 0 0 2px;
-}
-
-.taillight .tail-led {
-  position: absolute;
-  top: 1px;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: #f03030;
-  border-radius: 1px;
-  box-shadow:
-    -6px 0 12px 3px rgba(240, 48, 48, .35),
-    0 0 4px 1px rgba(240, 48, 48, .6);
-}
-
-.rear-bumper {
-  position: absolute;
-  bottom: 12px;
-  left: 5px;
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(180deg, #909098, #707078);
-  border-radius: 4px 0 0 4px;
-}
-
-/* -- Exhaust tips --------------------------------------------- */
-.exhaust-tip {
-  position: absolute;
-  width: 6px;
-  height: 3px;
-  background: linear-gradient(180deg, #666, #444);
-  border-radius: 1px 0 0 1px;
-}
-
-.exhaust-tip.left-tip  { left: 2px; bottom: 12px; }
-.exhaust-tip.right-tip { left: 2px; bottom: 16px; }
+@keyframes wheelSpin { to { transform: rotate(360deg); } }
 
 .exhaust {
   position: absolute;
-  bottom: 12px;
-  left: -2px;
+  bottom: 18%;
+  left: -1px;
 }
 
 .puff {
   display: block;
   position: absolute;
-  width: 5px;
-  height: 5px;
-  background: rgba(200, 200, 220, .2);
+  width: 4px;
+  height: 4px;
+  background: rgba(200,200,220,.2);
   border-radius: 50%;
   animation: puffAnim 2s ease-out infinite;
 }
@@ -455,67 +171,9 @@ body {
 .p3 { animation-delay: 1.4s; }
 
 @keyframes puffAnim {
-  0%   { transform: translate(0, 0) scale(1); opacity: .3; }
-  100% { transform: translate(-22px, -6px) scale(3); opacity: 0; }
+  0%   { transform: translate(0,0) scale(1); opacity: .3; }
+  100% { transform: translate(-20px,-5px) scale(3); opacity: 0; }
 }
-
-/* -- Wheels (dark alloys, 5-spoke, low profile) --------------- */
-.wheel {
-  position: absolute;
-  bottom: 0;
-  width: 26px;
-  height: 26px;
-}
-
-.wheel .tire {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #141418;
-  border: 3px solid #222228;
-}
-
-.wheel .rim {
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #505058 0%, #3a3a42 60%, #2e2e36 100%);
-  animation: wheelSpin .55s linear infinite;
-}
-
-.wheel .hub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: #999;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.wheel .spoke {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2px;
-  height: 7px;
-  background: #777;
-  transform-origin: center top;
-  border-radius: 1px;
-}
-
-.spoke.s1 { transform: translate(-50%, 0) rotate(0deg); }
-.spoke.s2 { transform: translate(-50%, 0) rotate(72deg); }
-.spoke.s3 { transform: translate(-50%, 0) rotate(144deg); }
-.spoke.s4 { transform: translate(-50%, 0) rotate(216deg); }
-.spoke.s5 { transform: translate(-50%, 0) rotate(288deg); }
-
-.wheel-front { right: 18px; }
-.wheel-rear  { left: 22px; }
-
-@keyframes wheelSpin { to { transform: rotate(360deg); } }
 
 /* -- Tabs ----------------------------------------------------- */
 .tabs {
@@ -855,11 +513,7 @@ footer {
 
 /* -- Responsive ----------------------------------------------- */
 @media (min-width: 480px) {
-  .hero { padding: 1.5rem 1.5rem 1rem; min-height: 130px; }
-  .hero h1 { font-size: 2rem; }
-  .car-container { transform: scale(1.1); }
-  @keyframes carBounce {
-    0%, 100% { transform: scale(1.1) translateY(0); }
-    50%      { transform: scale(1.1) translateY(-1.5px); }
-  }
+  .hero { padding: 2.5rem 1.5rem 1.2rem; min-height: 130px; }
+  .hero h1 { font-size: 2.4rem; }
+  .car-svg { width: 220px; }
 }
