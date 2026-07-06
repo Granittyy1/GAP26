@@ -55,6 +55,10 @@
       <span class="tab-icon">&#x26F0;&#xFE0F;</span>
       <span class="tab-label">Kosova</span>
     </button>
+    <button class="tab" role="tab" data-list="kosova-activities" aria-selected="false">
+      <span class="tab-icon">&#x1F3AF;</span>
+      <span class="tab-label">Activities</span>
+    </button>
   </nav>
 
   <main>
@@ -92,6 +96,18 @@
         <span>Completed</span>
       </div>
       <ul class="items checked-items" data-checked="kosova"></ul>
+    </section>
+
+    <section class="checklist-panel" data-panel="kosova-activities">
+      <form class="add-form" data-list="kosova-activities">
+        <input type="text" placeholder="Add a Kosova activity&#8230;" autocomplete="off" required>
+        <button type="submit" aria-label="Add item">+</button>
+      </form>
+      <ul class="items" data-items="kosova-activities"></ul>
+      <div class="checked-divider" data-divider="kosova-activities" hidden>
+        <span>Completed</span>
+      </div>
+      <ul class="items checked-items" data-checked="kosova-activities"></ul>
     </section>
   </main>
 

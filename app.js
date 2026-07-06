@@ -24,12 +24,13 @@ if (IS_CONFIGURED) {
   db = firebase.database();
 }
 
-const LISTS = ["road", "croatia", "kosova"];
-const EMPTY_ICONS = { road: "\uD83D\uDEE3\uFE0F", croatia: "\uD83C\uDF0A", kosova: "\u26F0\uFE0F" };
+const LISTS = ["road", "croatia", "kosova", "kosova-activities"];
+const EMPTY_ICONS = { road: "\uD83D\uDEE3\uFE0F", croatia: "\uD83C\uDF0A", kosova: "\u26F0\uFE0F", "kosova-activities": "\uD83C\uDFAF" };
 const EMPTY_MSGS  = {
   road:    "No road prep items yet - add one above!",
   croatia: "Nothing for Croatia yet - start planning!",
-  kosova:  "Nothing for Kosova yet - start planning!"
+  kosova:  "Nothing for Kosova yet - start planning!",
+  "kosova-activities": "No activities yet - what do you want to do?"
 };
 
 // -- Show config prompt if not set up ----------------------------
